@@ -1,0 +1,124 @@
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  70461 pts/1    00:00:00 ps
+katia@katia:~$ sleep 30 &
+[1] 70489
+katia@katia:~$ kill %1
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  70570 pts/1    00:00:00 ps
+[1]+  Terminado               sleep 30
+katia@katia:~$ jobs
+katia@katia:~$ sleep 100 &
+[1] 71414
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  71414 pts/1    00:00:00 sleep
+  71415 pts/1    00:00:00 ps
+katia@katia:~$ kill 71414
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  71707 pts/1    00:00:00 ps
+[1]+  Terminado               sleep 100
+katia@katia:~$ sleep 300 &
+[1] 72672
+katia@katia:~$ jobs
+[1]+  Executando              sleep 300 &
+katia@katia:~$ sleep 30
+^Z
+[2]+  Parado                  sleep 30
+katia@katia:~$ bg
+[2]+ sleep 30 &
+katia@katia:~$ sleep 200
+^Z[2]   Concluído              sleep 30
+
+[3]+  Parado                  sleep 200
+katia@katia:~$ sleep 100
+^Z
+[4]+  Parado                  sleep 100
+katia@katia:~$ jobs
+[1]   Executando              sleep 300 &
+[3]-  Parado                  sleep 200
+[4]+  Parado                  sleep 100
+katia@katia:~$ sleep 300 & fg
+[5] 73691
+sleep 100
+katia@katia:~$ jobs
+[1]   Executando              sleep 300 &
+[3]+  Parado                  sleep 200
+[5]-  Executando              sleep 300 &
+katia@katia:~$ fg%1
+fg%1: comando não encontrado
+katia@katia:~$ fb %1
+Comando 'fb' não encontrado, mas poder ser instalado com:
+sudo apt install findbugs
+katia@katia:~$ fg %1
+sleep 300
+katia@katia:~$ 
+exit
+Há trabalhos parados.
+katia@katia:~$ fg %1
+bash: fg: %1: trabalho não existe
+katia@katia:~$ %1
+bash: fg: %1: trabalho não existe
+katia@katia:~$ jobs
+[3]+  Parado                  sleep 200
+[5]-  Executando              sleep 300 &
+katia@katia:~$ fg %5
+sleep 300
+^Z
+[5]+  Parado                  sleep 300
+katia@katia:~$ fg %1
+bash: fg: %1: trabalho não existe
+katia@katia:~$ jobs %1
+bash: jobs: %1: trabalho não existe
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  73142 pts/1    00:00:00 sleep
+  73691 pts/1    00:00:00 sleep
+  74340 pts/1    00:00:00 ps
+katia@katia:~$ jobs
+[3]-  Parado                  sleep 200
+[5]+  Parado                  sleep 300
+katia@katia:~$ bg %4
+bash: bg: %4: trabalho não existe
+katia@katia:~$ sleep 100 
+^Z
+[6]+  Parado                  sleep 100
+katia@katia:~$ bg %6
+[6]+ sleep 100 &
+katia@katia:~$ ^C
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  73142 pts/1    00:00:00 sleep
+  73691 pts/1    00:00:00 sleep
+  75835 pts/1    00:00:00 ps
+[6]   Concluído              sleep 100
+katia@katia:~$ kill 73142 73691
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  73142 pts/1    00:00:00 sleep
+  73691 pts/1    00:00:00 sleep
+  75937 pts/1    00:00:00 ps
+katia@katia:~$ jobs
+[3]-  Parado                  sleep 200
+[5]+  Parado                  sleep 300
+katia@katia:~$ fg %3
+sleep 200
+Terminado
+katia@katia:~$ fg %5
+sleep 300
+Terminado
+katia@katia:~$ ps
+    PID TTY          TIME CMD
+  45097 pts/1    00:00:00 bash
+  76194 pts/1    00:00:00 ps
+katia@katia:~$ 
+
