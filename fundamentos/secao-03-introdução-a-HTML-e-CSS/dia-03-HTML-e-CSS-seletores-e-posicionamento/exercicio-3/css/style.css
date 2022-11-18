@@ -1,0 +1,15 @@
+body {
+  font-family: monospace;
+}
+
+h1, p {
+  align-items: center;
+}
+
+ol:hover {
+  background-color: #0000;
+}
+
+ul, ol {
+  list-style: none;
+}
