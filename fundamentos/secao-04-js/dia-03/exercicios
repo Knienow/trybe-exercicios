@@ -1,0 +1,35 @@
+/*exercicio 1 -O fatorial é representado pelo sinal !
+4! = 4 x 3 x 2 x 1 = 24
+
+Com base nessas informações, crie um algoritmo que imprima na tela o fatorial de 10.
+
+let fatorial = 10;
+let resultado = fatorial;
+
+for(let i = 1; i < fatorial; i++) {
+  resultado *= i;
+}
+
+console.log(resultado);*/
+
+/*exercicio -2 */
+/*solução: O ponto inicial do laço será (word.length - 1), que corresponde ao 
+       último caractere da string, "r"
+       Enquanto i for maior ou igual a 0, o laço continuará
+       Decrementamos i após cada iteração */
+/*let word = "tryber";
+let newWord = "";
+
+for(let i = word.length - 1; i >= 0; i --){
+  newWord += word[i];
+}
+console.log(newWord);*/
+
+
+/*exercicio 3*/
+let array = ['java', 'javascript', 'python', 'html', 'css'];
+
+for(let i = 0; i < array.length; i++){
+  
+    console.log(array[i]);
+}
