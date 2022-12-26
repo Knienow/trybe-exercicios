@@ -1,0 +1,132 @@
+katia@katia:~$ mkdir unix_tests_skills
+katia@katia:~/unix_tests_skills$ touch skills2.txt
+katia@katia:~/unix_tests_skills$ cat skills2.txt
+katia@katia:~/unix_tests_skills$ cat >> skills2.txt
+Internet
+Unix
+Bash
+katia@katia:~/unix_tests_skills$ cat >> skills2.txt
+Linux 
+Mac
+Ubuntu
+katia@katia:~/unix_tests_skills$ cat skills2.txt
+Internet
+Unix
+Bash
+Linux
+Mac
+Ubuntu
+katia@katia:~/unix_tests_skills$ sort < skills2.txt
+Bash
+Internet
+Linux
+Mac
+Ubuntu
+Unix
+katia@katia:~/unix_tests_skills$ wc -l skills2.txt
+6 skills2.txt
+katia@katia:~/unix_tests_skills$ cat skills2.txt >> top_skills.txt |sort
+katia@katia:~/unix_tests_skills$ cat top_skills.txt
+Internet
+Unix
+Bash
+Linux
+Mac
+Ubuntu
+katia@katia:~/unix_tests_skills$ cat | sort skills2.txt >> top_skills.txt
+
+katia@katia:~/unix_tests_skills$ cat top_skills.txt
+Internet
+Unix
+Bash
+Linux
+Mac
+Ubuntu
+Bash
+Internet
+Linux
+Mac
+Ubuntu
+Unix
+katia@katia:~/unix_tests_skills$ cat | sort skills2.txt > top_skills.txt
+
+katia@katia:~/unix_tests_skills$ cat top_skills.txt
+Bash
+Internet
+Linux
+Mac
+Ubuntu
+Unix
+katia@katia:~/unix_tests_skills$ touch phrases2.txt
+katia@katia:~/unix_tests_skills$ echo 'a dodo pisou no teclado' > phrases2.txt
+katia@katia:~/unix_tests_skills$ echo 'o gaga pulou da estante' >> phrases2.txt
+katia@katia:~/unix_tests_skills$ cat phrases2.txt
+a dodo pisou no teclado
+o gaga pulou da estante
+katia@katia:~/unix_tests_skills$ wc -l "*br*"
+wc: '*br*': Arquivo ou diretório inexistente
+katia@katia:~/unix_tests_skills$ wc -l "*br*" phrases2.txt
+wc: '*br*': Arquivo ou diretório inexistente
+ 2 phrases2.txt
+ 2 total
+katia@katia:~/unix_tests_skills$ wc -l *br phrases2.txt
+wc: '*br': Arquivo ou diretório inexistente
+ 2 phrases2.txt
+ 2 total
+katia@katia:~/unix_tests_skills$ wc -l *br
+wc: '*br': Arquivo ou diretório inexistente
+katia@katia:~/unix_tests_skills$ cat phrases2.txt
+a dodo pisou no teclado
+o gaga pulou da estante
+katia@katia:~/unix_tests_skills$ find . -name f "*br"
+find: paths must precede expression: `*br'
+katia@katia:~/unix_tests_skills$ find -name "*br"
+katia@katia:~/unix_tests_skills$ find . -name "*br*"
+katia@katia:~/unix_tests_skills$ find . -name '*br*'
+katia@katia:~/unix_tests_skills$ wc -l 'br'
+wc: br: Arquivo ou diretório inexistente
+katia@katia:~/unix_tests_skills$ wc -l 'br' phrases2.txt
+wc: br: Arquivo ou diretório inexistente
+ 2 phrases2.txt
+ 2 total
+katia@katia:~/unix_tests_skills$ wc phrases2.txt
+ 2 10 48 phrases2.txt
+katia@katia:~/unix_tests_skills$ grep -i 'br' phrases2.txt
+katia@katia:~/unix_tests_skills$ grep -i 'br' phrases2.txt | wc -l
+0
+katia@katia:~/unix_tests_skills$ grep -iv 'br' phrases2.txt 
+a dodo pisou no teclado
+o gaga pulou da estante
+katia@katia:~/unix_tests_skills$ cat >> phrases2.txt
+Brasil
+Alemanha
+katia@katia:~/unix_tests_skills$ phrases2.txt countries.txt > bunch_of_things.txt
+phrases2.txt: comando não encontrado
+katia@katia:~/unix_tests_skills$ cat phrases2.txt countries.txt > bunch_of_things.txt
+cat: countries.txt: Arquivo ou diretório inexistente
+katia@katia:~/unix_tests_skills$ touch countries.txt | cat >> countries.txt
+katia@katia:~/unix_tests_skills$  cat >> countries.txt
+Chile
+Argentina  
+Peru
+katia@katia:~/unix_tests_skills$ phrases2.txt countries.txt > bunch_of_things.txt
+phrases2.txt: comando não encontrado
+katia@katia:~/unix_tests_skills$ cat phrases2.txt countries.txt > bunch_of_things.txt
+katia@katia:~/unix_tests_skills$ cat bunch_of_things.txt
+a dodo pisou no teclado
+o gaga pulou da estante
+Brasil
+Alemanha
+Chile
+Argentina
+Peru
+katia@katia:~/unix_tests_skills$ sort bunch_of_things.txt
+a dodo pisou no teclado
+Alemanha
+Argentina
+Brasil
+Chile
+o gaga pulou da estante
+Peru
+katia@katia:~/unix_tests_skills$ 
+
